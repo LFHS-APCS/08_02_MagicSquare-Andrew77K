@@ -24,27 +24,34 @@ public class MagicSquare
      * @return false if the array is not a magic square
      */
     public boolean isMagicSquare()
-    {
+    {   
+        int row = 0;
         int sumRow = 0;
-        for( int j = 0; j < data[row].length; j++){
-          sumRow += data[row][j];
+        for( int j = 0; j < array[row].length; j++){
+          sumRow += array[row][j];
+          
         }
         
+        int col = 0;
         int sumCol = 0;
-        for ( int i = 0; i < data.length;i++){
-          if (col < data[i].length){
-            sumCol += data[i][col];
+        for ( int i = 0; i < array.length;i++){
+          if (col < array[i].length){
+            sumCol += array[i][col];
           }
         }
         
-        int sumDiag1 = 0;
-        for ( int k = 0; k < data.length && k < data[row].length;)
+        int sumDia = 0;
+        for ( int k = 0; k < array.length && k < array[row].length;){
 
-        int sumDiag2 = 0;
+        }
 
-        if(sumCol==sumRow && sumCol==sumDiag1 && sumCol ==sumDiag2)
+        int sumGonal = 0;
 
-        return false;   // complete this method
+        if(sumCol==sumRow && sumCol==sumDia && sumCol ==sumGonal){
+          return true;
+        } else {
+          return false;   // complete this method
+        }
     }
 
     /**

@@ -25,6 +25,25 @@ public class MagicSquare
      */
     public boolean isMagicSquare()
     {
+        int sumRow = 0;
+        for( int j = 0; j < data[row].length; j++){
+          sumRow += data[row][j];
+        }
+        
+        int sumCol = 0;
+        for ( int i = 0; i < data.length;i++){
+          if (col < data[i].length){
+            sumCol += data[i][col];
+          }
+        }
+        
+        int sumDiag1 = 0;
+        for ( int k = 0; k < data.length && k < data[row].length;)
+
+        int sumDiag2 = 0;
+
+        if(sumCol==sumRow && sumCol==sumDiag1 && sumCol ==sumDiag2)
+
         return false;   // complete this method
     }
 

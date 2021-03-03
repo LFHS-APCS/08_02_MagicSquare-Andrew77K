@@ -24,34 +24,49 @@ public class MagicSquare
      * @return false if the array is not a magic square
      */
     public boolean isMagicSquare()
-    {   
-        int row = 0;
-        int sumRow = 0;
-        for( int j = 0; j < array[row].length; j++){
-          sumRow += array[row][j];
-          
+    { 
+      for (int i=0;i<array.length;i++) {
+        if (array[0].length!=array[i].length) {
+          return false;
         }
-        
-        int col = 0;
-        int sumCol = 0;
-        for ( int i = 0; i < array.length;i++){
-          if (col < array[i].length){
-            sumCol += array[i][col];
-          }
+      }
+      int sum = 0;
+      for(int col = 0; col < array[0].length;col++){
+        sum += array[0][col];
+      }
+      int newSum = 0;
+      for(int row = 0; row < array.length;row++){
+        for(int col = 0; col < array[0].length;col++){
+          newSum += array[row][col];
         }
-        
-        int sumDia = 0;
-        for ( int k = 0; k < array.length && k < array[row].length;){
-
+        if (newSum != sum){
+          return false;
         }
-
-        int sumGonal = 0;
-
-        if(sumCol==sumRow && sumCol==sumDia && sumCol ==sumGonal){
-          return true;
-        } else {
-          return false;   // complete this method
+        newSum = 0;
+      }
+      for(int col = 0; col < array[0].length;col++){
+        for(int row = 0; row < array.length;row++){
+          newSum+=array[row][col];
         }
+        if (newSum!=sum) {
+          return false;
+        }
+        newSum = 0;
+      }
+      for (int i=0;i<array.length;i++) {
+        newSum+=array[i][i];
+      }
+      if (newSum!=sum) {
+        return false;
+      }
+      newSum=0;
+      for (int i=0;i<array.length;i++) {
+        newSum+=array[i][array.length-i-1];
+      }
+      if (newSum!=sum) {
+        return false;
+      }
+      return true;
     }
 
     /**
